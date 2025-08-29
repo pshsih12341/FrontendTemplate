@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 /**
  * Хук для отслеживания позиции скролла
@@ -30,8 +30,8 @@ export const useScrollPosition = (element = window) => {
     handleScroll();
 
     // Добавляем слушатель события скролла
-    element.addEventListener('scroll', handleScroll, { passive: true });
-    
+    element.addEventListener('scroll', handleScroll, {passive: true});
+
     // Очищаем слушатель при размонтировании
     return () => element.removeEventListener('scroll', handleScroll);
   }, [element]);
@@ -41,11 +41,11 @@ export const useScrollPosition = (element = window) => {
 
 // Удобные геттеры для позиций
 export const useScrollX = (element) => {
-  const { x } = useScrollPosition(element);
+  const {x} = useScrollPosition(element);
   return x;
 };
 
 export const useScrollY = (element) => {
-  const { y } = useScrollPosition(element);
+  const {y} = useScrollPosition(element);
   return y;
-}; 
+};

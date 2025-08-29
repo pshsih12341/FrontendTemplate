@@ -1,4 +1,4 @@
-import { apiClient } from './config';
+import {apiClient} from './config';
 
 export const http = {
   get: async (url, config = {}) => {
@@ -44,14 +44,13 @@ export const http = {
     } catch (error) {
       throw handleApiError(error);
     }
-  }
+  },
 };
 
 const handleApiError = (error) => {
   if (error.response) {
+    const {status, data} = error.response;
 
-    const { status, data } = error.response;
-    
     switch (status) {
       case 400:
         return new Error(data.message || 'Неверный запрос');
@@ -73,4 +72,4 @@ const handleApiError = (error) => {
   } else {
     return new Error('Ошибка настройки запроса');
   }
-}; 
+};

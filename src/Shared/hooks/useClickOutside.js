@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import {useEffect, useRef} from 'react';
 
 /**
  * Хук для определения клика вне элемента
@@ -29,4 +29,4 @@ export const useClickOutside = (handler) => {
   }, [handler]);
 
   return ref;
-}; 
+};

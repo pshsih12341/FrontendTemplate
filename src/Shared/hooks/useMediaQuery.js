@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 /**
  * Хук для работы с медиа-запросами
@@ -11,7 +11,7 @@ export const useMediaQuery = (query) => {
   useEffect(() => {
     // Создаем MediaQueryList объект
     const media = window.matchMedia(query);
-    
+
     // Устанавливаем начальное значение
     if (media.matches !== matches) {
       setMatches(media.matches);
@@ -19,10 +19,10 @@ export const useMediaQuery = (query) => {
 
     // Создаем функцию-слушатель
     const listener = () => setMatches(media.matches);
-    
+
     // Добавляем слушатель
     media.addEventListener('change', listener);
-    
+
     // Очищаем слушатель при размонтировании
     return () => media.removeEventListener('change', listener);
   }, [matches, query]);
@@ -34,4 +34,4 @@ export const useMediaQuery = (query) => {
 export const useIsMobile = () => useMediaQuery('(max-width: 768px)');
 export const useIsTablet = () => useMediaQuery('(min-width: 769px) and (max-width: 1024px)');
 export const useIsDesktop = () => useMediaQuery('(min-width: 1025px)');
-export const useIsDarkMode = () => useMediaQuery('(prefers-color-scheme: dark)'); 
+export const useIsDarkMode = () => useMediaQuery('(prefers-color-scheme: dark)');
